@@ -43,19 +43,17 @@ First, let's prepare the Automation car itself. Make sure your car does not use 
 * In the Unity Editor's filesystem at the bottom, go to `Assets/Cars` and create a new folder for your car (`Right-click > Create > Folder`). The name of the folder will be the internal name of your car
 * Right-click inside this folder and select `Create > EasyCMS > Car Manager` (do not mistake the `EasyCMS` option for `Create > EasyCMS`). This will create the core manager for your car, you can name this file anything you want
 
-<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/4947de38-c1d7-4b24-afe9-51c009ed0473" />
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/ceef5ce6-6edc-4bb8-967d-fcda8a568db5" />
 
 * Select the newly created `Car Manager` file, fill out the `CMS Executable` field with the path to your CMS 2018 .exe file (you can click the `...` button next to it to open a file dialog). You should only need to do this once, any Car Managers you create after will look for other Car Managers and copy this path on creation
 * Now fill out the `BeamNG Materials` path with the path to your car's `[UID].materials.json` file. By default, this is located in `C:\Users\[USER]\AppData\Local\BeamNG\BeamNG.drive\current\mods\unpacked\[MOD NAME]\vehicles\[CAR NAME]`
 
-<img width="366" height="530" alt="image" src="https://github.com/user-attachments/assets/e1c93039-4d68-4d58-acb1-645ceb4df74a" />
-
+<img width="383" height="509" alt="image" src="https://github.com/user-attachments/assets/8a564ada-70b7-4565-a167-8c6852ac7bb2" />
 
 * Once both paths are set up, click through all of the buttons in the `Import` section in order. This will copy the materials file and the textures related to it from your car and then build Unity BRP materials from them
 * Once materials are built, you will see `Paint_[X]` assets created in your car's folder. These files are created for each of the paint slots found in the materials file. You can use these to change the paint of the car. This cannot be done in the game, so this is where you decide on the color and the paint parameters. In the `Materials` folder you will also find all materials imported from the materials file, you can edit each one separately here if you so desire
 
-<img width="365" height="273" alt="image" src="https://github.com/user-attachments/assets/20bbe452-861a-4301-a88b-16bff21015f8" />
-
+<img width="386" height="169" alt="image" src="https://github.com/user-attachments/assets/f31dc423-8eda-4680-bd8e-7abb9769f237" />
 
 ## Car model setup
 * Open your 3D editing software of choice and import the car's model file from the exported files. By default this will be in `C:\Users\[USER]\AppData\Local\BeamNG\BeamNG.drive\current\mods\unpacked\[MOD NAME]\vehicles\[CAR NAME]\[UID]\[UID]_bodymesh.dae`. In Blender, make sure not to import the same car multiple times in one project as this will mess up the material names
@@ -71,7 +69,7 @@ First, let's prepare the Automation car itself. Make sure your car does not use 
 > Unity 5.6 does not support single models with a vertex or face count of over 65534. Most automation bodies combined with all fixtures are over this number. Unity will automatically separate these models into several - this will cause the models to not work properly in CMS. It is recommended to separate the body into panels so each model has smaller size
 
 Your car folder should now look something like this:
-<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/f991cefe-e79d-4745-802f-aebfddf48547" />
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/59ce0ce4-4354-495c-ab05-046fa50b37d8" />
 
 ## Generating configs
 * Navigate to the `Car Manager` object for your car and click through the buttons in the `Templates` section. This will generate all config files required and used by CMS with EasyCMS templates that you can edit later. Instead of generating the `Car Config` (`config.txt`), you can grab one from the game files off a car that closer matches the car you are  porting. CMS car files can be found in `Car Mechanic Simulator 2018\cms2018_Data\StreamingAssets\Cars`. We will talk about what each config file does in a [further section](#config-files)
@@ -83,7 +81,7 @@ Your car folder should now look something like this:
 * In the bottom right corner you will find buttons to generate images for the car thumbnail and the car parts. Click them both
 
 > [!IMPORTANT]
-> Car Mechanic Simulator VR does **not** support CMS 2018 DLC. If you attempt to load a CMS 18 car that uses DLC content in CMS VR you will be stuck on a black screen. If this happens - it is a good indicator that the car likely uses DLC content
+> Car Mechanic Simulator VR does **not** support CMS 2018 DLC. If you attempt to load a car that uses CMS 18 DLC content in CMS VR you will be stuck on a black screen. If this happens - it is a good indicator that the car likely uses DLC content
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0bc6928-5749-4f09-93da-2977c81c82e0" />
 
