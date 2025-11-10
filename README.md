@@ -45,7 +45,7 @@ First, let's prepare the Automation car itself. Make sure your car does not use 
 
 <img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/4947de38-c1d7-4b24-afe9-51c009ed0473" />
 
-* Select the newly created `Car Manager` file, fill out the `CMS Executable` field with the path to your CMS's .exe file (you can click the `...` button next to it to open a file dialog). You should only need to do this once, any Car Managers you create after will look for other Car Managers and copy this path on creation
+* Select the newly created `Car Manager` file, fill out the `CMS Executable` field with the path to your CMS 2018 .exe file (you can click the `...` button next to it to open a file dialog). You should only need to do this once, any Car Managers you create after will look for other Car Managers and copy this path on creation
 * Now fill out the `BeamNG Materials` path with the path to your car's `[UID].materials.json` file. By default, this is located in `C:\Users\[USER]\AppData\Local\BeamNG\BeamNG.drive\current\mods\unpacked\[MOD NAME]\vehicles\[CAR NAME]`
 
 <img width="366" height="530" alt="image" src="https://github.com/user-attachments/assets/e1c93039-4d68-4d58-acb1-645ceb4df74a" />
