@@ -87,7 +87,10 @@ Your car folder should now look something like this:
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0bc6928-5749-4f09-93da-2977c81c82e0" />
 
-* Now you are ready to open the game itself and find your car in places defined by the config.
+* Now you are ready to open the game itself and find your car in places defined by the config
+
+> [!NOTE]
+> In CMS 18 taking a body part off a car and putting it back on may change its color to white. Reloading the scene fixes that
 
 # :oncoming_automobile: Extras
 ## Config files
