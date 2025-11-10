@@ -22,11 +22,16 @@ Before we proceed to the installation and usage guides, let us go over things Ea
 * An installed instance of the Unity 5.6 editor
 * A reference of the CMS18 modding PDF Guide `Car Mechanic Simulator 2018\ModdingTools\PDFGuides\CMS18 Car Modding Guide.pdf` (You do **not** need to install CMS modding tools for Unity)
 * 3D editing software that supports Collada (.dae) and FBX (.fbx) files (Blender recommended)
+* Car Mechanic Simulator 2018 (Even when exporting to CMS VR, CMS VR does not have its own Car Editor)
 
 # :building_construction: Setup
 1. Download the latest EasyCMS18 Template release from the `Releases` section in this GitHub repository
 2. Unpack the archive
 3. Open Unity and add the unpacked folder as a project. Make sure the selected folder has folders named `Assets`, `Library` and `ProjectSettings` immediately inside it
+
+> [!NOTE]
+> If the project gets stuck infinitely loading - close it via task manager, in Unity Hub navigate to `Installs` and find your Unity 5.6 install. Right click on it and select `Show In Explorer`. In the opened directory, open `Unity.exe`
+
 # :blue_car: Usage
 While the guide below seems rather long, the process to making a basic working car can take approximately 5-10 minutes
 ## Car setup
@@ -77,6 +82,9 @@ Your car folder should now look something like this:
 * Open the CMS Car Editor and select your car there. Here you can properly set up mostly everything about the car itself. Make sure to periodically click `Save` in the bottom left corner as you make changes - **there is no autosave**
 * In the bottom right corner you will find buttons to generate images for the car thumbnail and the car parts. Click them both
 
+> [!IMPORTANT]
+> Car Mechanic Simulator VR does **not** support CMS 2018 DLC. If you attempt to load a CMS 18 car that uses DLC content in CMS VR you will be stuck on a black screen. If this happens - it is a good indicator that the car likely uses DLC content
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0bc6928-5749-4f09-93da-2977c81c82e0" />
 
 * Now you are ready to open the game itself and find your car in places defined by the config.
@@ -102,3 +110,8 @@ To set up the axis, first navigate to the top menu and change `Transformation Or
 * Trunk: Rotate on the `Y` axis `90 degrees` to open the trunk forwards or `-90 degrees` for backwards. Hit `Ctrl+A`, then `Rotation`. Rotate on the `Y` axis `-90 degrees` or `90 degrees` depending on what you did earlier respectively. Ensure that rotating the object on the `Z` axis to **positive** values opens the trunk the correct way
 * Left Doors: Rotate on the `X` axis `-90 degrees`. Hit `Ctrl+A`, then `Rotation`. Rotate on the `X` axis `90 degrees`. Ensure that rotating the object on the `Y` axis to **negative** values opens the panel the correct way
 * Right Doors: Rotate on the `X` axis `90 degrees`. Hit `Ctrl+A`, then `Rotation`. Rotate on the `X` axis `-90 degrees`. Ensure that rotating the object on the `Y` axis to **negative** values opens the panel the correct way
+
+## Exporting to CMS VR
+To export to CMS VR the car should first be exported to CMS 2018, where it can be edited via its Car Editor. Once you are ready to send the car to CMS VR, find it in `Car Mechanic Simulator 2018\cms2018_Data\StreamingAssets\Cars` and copy it over to `Car Mechanic Simulator 2018 - VR\cms_Data\StreamingAssets\Cars`
+
+Also note that high poly areas of the car cause the game to start lagging heavily during physics interactions: this includes any physics objects, liquids and even your hands. Try to keep high poly areas a good distance away from areas that are to be used often
