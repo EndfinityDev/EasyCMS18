@@ -3,7 +3,7 @@
 # :wrench: EasyCMS18
 EasyCMS is a toolset created to simplify porting Automation creations exported to BeamNG to Car Mechanic Simulator 2018 and Car Mechanic Simulator VR. The tool automates porting BeamNG materials to Unity BRP materials and manages Asset Bundle creation and exporting to CMS
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/27d6f4c0-b220-4d12-9369-5c2d499c4ec1" />
+![202511~2](https://github.com/user-attachments/assets/c92d9014-402f-408d-aa07-895d8cca70d9)
 
 * [:stop_sign: Limitations](#stop_sign-limitations)
 * [:spiral_notepad: Prerequisites](#spiral_notepad-prerequisites)
@@ -99,7 +99,7 @@ There is a total of 4 config files that we are using
 4. `parts.txt` - This file defines prices for the car's body parts. To be able to appear in the in-game part shop the part must be defined here and must have a price above 0. EasyCMS generates a price of 300 credits for each valid part found in the model file
 
 ## Openable panels
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d755cda7-0517-42be-8228-9a45a4ab89ea" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b13d664a-c30a-4768-8079-9bffe8222116" />
 
 Openable panels are separate objects set up in a slightly different way from other body parts. Here, working in Blender will be referenced specifically, working in other software may be different.
 To make openable doors, hoods, trunks etc. one must first separate these panels from the body. Liberate use of the `L` key when in face edit mode in Blender helps quickly select large surfaces, however be wary that the parts of the panels that go inside panel gaps are not usually picked up by this. With other more complex objects the X-Ray mode (default hotkey: `Alt-Z` or can be found as a button in the top right corner) paired with box or circle select (`B` or `C` hotkeys respectively) can help. Temporarily hiding faces with `H` can help get other faces out of the way so you don't accidentally select them along with the faces you want, you can unhide them again with `Alt-H`
