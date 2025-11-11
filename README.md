@@ -83,7 +83,7 @@ Your car folder should now look something like this:
 > [!IMPORTANT]
 > Car Mechanic Simulator VR does **not** support CMS 2018 DLC. If you attempt to load a car that uses CMS 18 DLC content in CMS VR you will be stuck on a black screen. If this happens - it is a good indicator that the car likely uses DLC content
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0bc6928-5749-4f09-93da-2977c81c82e0" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/19c7cf05-e965-4327-8ef4-ef9d06bfec00" />
 
 * Now you are ready to open the game itself and find your car in places defined by the config
 
