@@ -48,7 +48,7 @@ First, let's prepare the Automation car itself. Make sure your car does not use 
 * Select the newly created `Car Manager` file, fill out the `CMS Executable` field with the path to your CMS 2018 .exe file (you can click the `...` button next to it to open a file dialog). You should only need to do this once, any Car Managers you create after will look for other Car Managers and copy this path on creation
 * Now fill out the `BeamNG Materials` path with the path to your car's `[UID].materials.json` file. By default, this is located in `C:\Users\[USER]\AppData\Local\BeamNG\BeamNG.drive\current\mods\unpacked\[MOD NAME]\vehicles\[CAR NAME]`
 
-<img width="383" height="509" alt="image" src="https://github.com/user-attachments/assets/8a564ada-70b7-4565-a167-8c6852ac7bb2" />
+<img width="385" height="511" alt="image" src="https://github.com/user-attachments/assets/91fb42e3-a9cf-4ec6-b0e2-307a7a687fcf" />
 
 * Once both paths are set up, click through all of the buttons in the `Import` section in order. This will copy the materials file and the textures related to it from your car and then build Unity BRP materials from them
 * Once materials are built, you will see `Paint_[X]` assets created in your car's folder. These files are created for each of the paint slots found in the materials file. You can use these to change the paint of the car. This cannot be done in the game, so this is where you decide on the color and the paint parameters. In the `Materials` folder you will also find all materials imported from the materials file, you can edit each one separately here if you so desire
