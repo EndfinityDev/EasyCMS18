@@ -14,9 +14,8 @@
 		Tags { "RenderType"="Transparent" "Queue"="AlphaTest" }
 		//Tags { "RenderType"="Transparent" "Queue"="Transparent" } for glass
 		LOD 200
-		//Cull Off
+		Cull Off
 		ZWrite On
-		Cull Back
 		
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
@@ -53,6 +52,7 @@
 		UNITY_INSTANCING_CBUFFER_END
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
+			UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
 			// Albedo comes from a texture tinted by color
 			fixed4 c = tex2D (_DiffuseMap, IN.uv_DiffuseMap) * _Color;
 			fixed4 a = tex2D (_MainTex, IN.uv2_MainTex).r;
@@ -68,36 +68,6 @@
 			    o.Normal *= -1;
 			}
 		}
-		ENDCG
-
-
-		Cull Front
-		ZWrite On
-
-		CGPROGRAM
-		#pragma surface surf Standard alphatest:_AlphaClipThreshold
-		#pragma target 3.0
-		sampler2D _MainTex;
-
-		struct Input {
-			float2 uv2_MainTex;
-			fixed facing : VFACE;
-			UNITY_VERTEX_INPUT_INSTANCE_ID
-		};
-
-		fixed4 _BackfaceColor;
-
-		void surf (Input IN, inout SurfaceOutputStandard o) {
-               // Apply the backface color
-			fixed4 a = tex2D (_MainTex, IN.uv2_MainTex).r;
-               o.Albedo = _BackfaceColor.rgb;
-               o.Alpha = a;
-			   //if (IN.facing < 0) // VFACE is typically 1 for front, -1 for back.
-				//{
-					//o.Normal *= -1;
-				//}
-           }
-
 		ENDCG
 	}
 	FallBack "Diffuse"

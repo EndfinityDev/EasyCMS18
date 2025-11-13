@@ -13,14 +13,17 @@ using System.Linq;
 public class ImportMaterialJSon
 {
     const string GENERAL_SHADER_NAME_UV0 = "EasyCMS/EasyCMS_BRP_General_UV0";
-    const string GLASS_SHADER_NAME_UV0 = "EasyCMS/EasyCMS_BRP_Glass_UV0";
-
-    // WHY DON'T THE KEYWORD ENUMS WORK UNITY? WHY???
     const string GENERAL_SHADER_NAME_UV1 = "EasyCMS/EasyCMS_BRP_General_UV1";
+
+    const string GLASS_SHADER_NAME_UV0 = "EasyCMS/EasyCMS_BRP_Glass_UV0";
     const string GLASS_SHADER_NAME_UV1 = "EasyCMS/EasyCMS_BRP_Glass_UV1";
 
-    const string OPAQUE_SHADER_NAME_UV0 = "EasyCMS/EasyCMS_BRP_Opaque_UV0";
-    const string OPAQUE_SHADER_NAME_UV1 = "EasyCMS/EasyCMS_BRP_Opaque_UV0";
+    const string OPAQUE_SHADER_NAME = "EasyCMS/EasyCMS_BRP_Opaque";
+
+    const string PAINT_STAMP_SHADER_NAME_UV0 = "EasyCMS/EasyCMS_BRP_Paint_Stamp_UV0";
+    const string PAINT_STAMP_SHADER_NAME_UV1 = "EasyCMS/EasyCMS_BRP_Paint_Stamp_UV1";
+
+    const string PAINT_OPAQUE_SHADER_NAME = "EasyCMS/EasyCMS_BRP_Paint_Opaque";
 
     enum UVMap
     {
@@ -153,18 +156,38 @@ public class ImportMaterialJSon
             else
             {
                 bool hasOpacityMap = opacityMapName != string.Empty;
-                switch (uvMap)
+                bool isPaint = material.Key.Contains("_carpaint");
+                if(isPaint)
                 {
-                    case UVMap.UV0:
-                        shaderName = hasOpacityMap ? GENERAL_SHADER_NAME_UV0 : OPAQUE_SHADER_NAME_UV0;
-                        break;
-                    case UVMap.UV1:
-                        shaderName = hasOpacityMap ? GENERAL_SHADER_NAME_UV1 : OPAQUE_SHADER_NAME_UV1;
-                        break;
-                    default:
-                        Debug.LogError("[ImportMaterialJSon.ParseMaterialsFile] | \"" + material.Key + "\": Unknown UV Map enum, using default (UV0)");
-                        shaderName = hasOpacityMap ? GENERAL_SHADER_NAME_UV0 : OPAQUE_SHADER_NAME_UV0;
-                        break;
+                    switch (uvMap)
+                    {
+                        case UVMap.UV0:
+                            shaderName = hasOpacityMap ? PAINT_STAMP_SHADER_NAME_UV0 : PAINT_OPAQUE_SHADER_NAME;
+                            break;
+                        case UVMap.UV1:
+                            shaderName = hasOpacityMap ? PAINT_STAMP_SHADER_NAME_UV1 : PAINT_OPAQUE_SHADER_NAME;
+                            break;
+                        default:
+                            Debug.LogError("[ImportMaterialJSon.ParseMaterialsFile] | \"" + material.Key + "\": Unknown UV Map enum, using default (UV0)");
+                            shaderName = hasOpacityMap ? PAINT_STAMP_SHADER_NAME_UV0 : PAINT_OPAQUE_SHADER_NAME;
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (uvMap)
+                    {
+                        case UVMap.UV0:
+                            shaderName = hasOpacityMap ? GENERAL_SHADER_NAME_UV0 : OPAQUE_SHADER_NAME;
+                            break;
+                        case UVMap.UV1:
+                            shaderName = hasOpacityMap ? GENERAL_SHADER_NAME_UV1 : OPAQUE_SHADER_NAME;
+                            break;
+                        default:
+                            Debug.LogError("[ImportMaterialJSon.ParseMaterialsFile] | \"" + material.Key + "\": Unknown UV Map enum, using default (UV0)");
+                            shaderName = hasOpacityMap ? GENERAL_SHADER_NAME_UV0 : OPAQUE_SHADER_NAME;
+                            break;
+                    }
                 }
             }
 
@@ -257,6 +280,7 @@ public class ImportMaterialJSon
                     CarPaintSO newPaintData = ScriptableObject.CreateInstance<CarPaintSO>();
                     newPaintData.name = directoryName + colorPaletteMap;
                     newPaintData.CarColor = color;
+                    newPaintData.BackfaceColor = Color.black;
                     newPaintData.Roughness = roughness;
                     newPaintData.Metallic = metallic;
                     //newPaintData.Clearcoat = clearCoat;

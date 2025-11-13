@@ -50,6 +50,7 @@
 		UNITY_INSTANCING_CBUFFER_END
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
+			UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
 			// Albedo comes from a texture tinted by color
 			fixed4 c = _Color;
 			fixed4 a = tex2D (_MainTex, IN.uv_MainTex).r;

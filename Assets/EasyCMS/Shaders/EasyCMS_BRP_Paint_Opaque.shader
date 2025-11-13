@@ -1,6 +1,7 @@
-﻿Shader "EasyCMS/EasyCMS_BRP_Opaque" {
+﻿Shader "EasyCMS/EasyCMS_BRP_Paint_Opaque" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
+		_BackfaceColor ("Backface Color", Color) = (0,0,0,1)
 		//_MainTex ("MainTex", 2D) = "white" {}
 		_DiffuseMap ("Diffuse Map", 2D) = "white" {}
 		_NormalMap ("Normal Map", 2D) = "bump" {}
@@ -12,7 +13,8 @@
 	SubShader {
 		Tags { "RenderType"="Opaque"}
 		LOD 200
-		Cull Off
+		ZWrite On
+		Cull Back
 		
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
@@ -62,6 +64,34 @@
 			    o.Normal *= -1;
 			}
 		}
+		ENDCG
+		
+		Cull Front
+		ZWrite On
+
+		CGPROGRAM
+		#pragma surface surf Standard
+		#pragma target 3.0
+		sampler2D _MainTex;
+
+		struct Input {
+			float2 uv_MainTex;
+			fixed facing : VFACE;
+			UNITY_VERTEX_INPUT_INSTANCE_ID
+			INTERNAL_DATA
+		};
+
+		fixed4 _BackfaceColor;
+
+		UNITY_INSTANCING_CBUFFER_START(Props)
+		UNITY_INSTANCING_CBUFFER_END
+
+		void surf (Input IN, inout SurfaceOutputStandard o) {
+			UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
+            // Apply the backface color
+            o.Albedo = _BackfaceColor.rgb;
+			o.Alpha = _BackfaceColor.a;
+        }
 		ENDCG
 	}
 	FallBack "Diffuse"
